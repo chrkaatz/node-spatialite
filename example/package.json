@@ -1,0 +1,18 @@
+{
+  "name": "node-spatialite-example",
+  "version": "1.0.0",
+  "description": "showcase nodejs use of spatialite",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "spatialite"
+  ],
+  "author": "Christian Kaatz <chrkaatz@googlemail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "sqlite3": "^4.0.4"
+  }
+}
