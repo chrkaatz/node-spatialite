@@ -5,10 +5,9 @@ let db;
 const query = "SELECT AsGeoJSON(Centroid(GeomFromText('POLYGON ((30 10, 10 20, 20 40, 40 40, 30 10))'))) AS geojson;";
 
 module.exports = {
-  init: (logger, config) => {
-    logger.trace('initDB');
+  init: (config) => {
     return new Promise((resolve, reject) => {
-      db = new sqlite.Database(config.db.filename, (err) => {
+      db = new sqlite.Database(config.filename, (err) => {
         if (err) {
           reject(err);
         } else {
