@@ -13,6 +13,6 @@
   "author": "Christian Kaatz <chrkaatz@googlemail.com>",
   "license": "MIT",
   "dependencies": {
-    "sqlite3": "^4.0.4"
+    "sqlite3": "^5.0.0"
   }
 }
