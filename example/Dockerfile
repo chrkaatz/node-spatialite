@@ -1,4 +1,4 @@
-FROM chrkaatz/node-spatialite:node-10
+FROM chrkaatz/node-spatialite:node-14
 
 RUN mkdir -p /usr/src/app
 
