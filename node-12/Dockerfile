@@ -6,7 +6,7 @@ RUN echo "@edge-testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/a
 RUN apk update && \
   apk --no-cache --update upgrade musl && \
   apk add --upgrade apk-tools@edge && \
-  apk add --update wget curl gcc g++ make automake libtool autoconf minizip-dev "musl-utils@edge" "musl-dev@edge" "fossil@edge-testing" git libc-dev sqlite-dev zlib-dev libxml2-dev proj-dev "geos-dev@edge-testing" "gdal-dev@edge-testing" "gdal@edge-testing" expat-dev readline-dev ncurses-dev readline ncurses-static "libc-utils@edge" "libc6-compat@edge" && \
+  apk add --update wget curl gcc g++ make automake libtool autoconf minizip-dev "musl-utils@edge" "musl-dev@edge" "fossil@edge-testing" git libc-dev sqlite-dev zlib-dev libxml2-dev "proj-dev@edge" "geos-dev@edge-testing" "gdal-dev@edge-testing" "gdal@edge-testing" expat-dev readline-dev ncurses-dev readline ncurses-static "libc-utils@edge" "libc6-compat@edge" && \
   rm -rf /var/cache/apk/*
 
 ENV USER me
@@ -23,7 +23,7 @@ RUN cp /usr/local/bin/* /usr/bin/
 RUN cp -R /usr/local/lib/* /usr/lib/
 
 # Create a minimal instance
-FROM node:12-alpine
+FROM node:12-alpine3.12
 
 RUN echo "@edge http://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
 RUN echo "@edge-testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
@@ -31,7 +31,7 @@ RUN echo "@edge-testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/a
 RUN apk update && \
   apk --no-cache --update upgrade musl && \
   apk add --upgrade apk-tools@edge && \
-  apk add --update wget curl gcc g++ make automake libtool autoconf fossil git libc-dev sqlite-dev zlib-dev libxml2-dev proj-dev "geos-dev@edge-testing" "gdal-dev@edge-testing" "gdal@edge-testing" "musl-utils@edge" "musl-dev@edge" expat-dev readline-dev ncurses-dev readline ncurses-static "libc-utils@edge" "libc6-compat@edge" && \
+  apk add --update wget curl gcc g++ make automake libtool autoconf "fossil@edge-testing" git libc-dev sqlite-dev zlib-dev minizip-dev libxml2-dev proj-dev "geos-dev@edge-testing" "gdal-dev@edge-testing" "gdal@edge-testing" "musl-utils@edge" "musl-dev@edge" expat-dev readline-dev ncurses-dev readline ncurses-static "libc-utils@edge" "libc6-compat@edge" && \
   rm -rf /var/cache/apk/*
 
 # copy libs (maintaining symlinks)

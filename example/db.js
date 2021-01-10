@@ -1,8 +1,9 @@
-const sqlite = require('sqlite3');
+const sqlite = require("sqlite3");
 
 let db;
 
-const query = "SELECT AsGeoJSON(Centroid(GeomFromText('POLYGON ((30 10, 10 20, 20 40, 40 40, 30 10))'))) AS geojson;";
+const query =
+  "SELECT AsGeoJSON(Centroid(GeomFromText('POLYGON ((30 10, 10 20, 20 40, 40 40, 30 10))'))) AS geojson;";
 
 module.exports = {
   init: (config) => {
@@ -11,9 +12,9 @@ module.exports = {
         if (err) {
           reject(err);
         } else {
-          db.loadExtension('mod_spatialite', (error) => {
+          db.loadExtension("mod_spatialite", (error) => {
             if (error) {
-              reject(err);
+              reject(error);
             } else {
               resolve(db);
             }
@@ -36,13 +37,14 @@ module.exports = {
       });
     });
   },
-  close: () => new Promise((resolve, reject) => {
-    db.close((err) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve('DB closed');
-      }
-    });
-  }),
+  close: () =>
+    new Promise((resolve, reject) => {
+      db.close((err) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve("DB closed");
+        }
+      });
+    }),
 };
