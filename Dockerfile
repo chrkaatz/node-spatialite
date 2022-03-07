@@ -23,7 +23,7 @@ RUN cp /usr/local/bin/* /usr/bin/
 RUN cp -R /usr/local/lib/* /usr/lib/
 
 # Create a minimal instance
-FROM node:16-alpine3.12
+FROM node:17-alpine3.12
 
 RUN echo "@edge http://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
 RUN echo "@edge-testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
